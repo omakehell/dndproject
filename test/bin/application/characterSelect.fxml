@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="316.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1 v">
+   <children>
+      <ListView fx:id="characterSelect_lv_list" layoutX="14.0" layoutY="14.0" prefHeight="374.0" prefWidth="240.0" />
+      <Button fx:id="characterSelect_btn_open" layoutX="256.0" layoutY="20.0" mnemonicParsing="false" text="Select" />
+      <Button fx:id="characterSelect_btn_delete" layoutX="256.0" layoutY="48.0" mnemonicParsing="false" text="Delete" />
+      <Button fx:id="characterSelect_btn_create" layoutX="256.0" layoutY="77.0" mnemonicParsing="false" text="Create" />
+   </children>
+</AnchorPane>
