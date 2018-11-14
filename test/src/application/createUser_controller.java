@@ -1,5 +1,8 @@
 package application;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -53,7 +56,7 @@ public class createUser_controller implements Initializable {
 		System.out.println("comprobar" + comprobar);
 		System.out.println(create_password + " , " + create_confirmation);
 		if (create_password.equals(create_confirmation) && Metodos_logica.checkUser(create_user) == 0) {
-			Usuario _user = new Usuario(comprobar, create_user, create_password, create_recoveryCode);
+			
 			Metodos_logica.login_btn_register(create_user, create_password, create_recoveryCode);
 			System.out.println("creada cuenta: " + create_user + " | " + create_password);
 			Alert alert = new Alert(AlertType.INFORMATION);

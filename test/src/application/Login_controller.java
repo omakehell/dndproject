@@ -2,6 +2,8 @@ package application;
 
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -73,7 +75,11 @@ public class Login_controller implements Initializable {
 		uid = usuarioexiste;
 		System.out.println("syso captura campos: " + user + " " + password);
 		if (usuarioexiste != 0) {
+
 			try {
+				
+				String fileData = Integer.toString(uid);
+				Files.write(Paths.get("cfg"), fileData.getBytes());
 				AnchorPane characterSelect = (AnchorPane) FXMLLoader
 						.load(getClass().getClassLoader().getResource("application/characterSelect.fxml"));
 				Stage stage = new Stage();
