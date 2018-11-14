@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="test.jnlp">
+  <information>
+    <title>test</title>
+    <vendor>oma</vendor>
+    <description>Dnd Companion</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="test.jar" size="12310" download="eager" />
+    <jar href="libs\mysql-connector-java-8.0.13.jar" size="2132635" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="0" height="0" main-class="application.Main"  name="Dnd Companion" />
+  <update check="background"/>
+</jnlp>
