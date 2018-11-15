@@ -7,6 +7,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Metodos_logica {
 	public static int login_comprobar(String user, String password) {
@@ -103,25 +104,25 @@ public class Metodos_logica {
 
 	public static List<String[]> getPlayers(int usernumber) {
 		List<String[]> pcs = new ArrayList<String[]>();
-		String[] pc  = new String[3];
+		String[] pc = new String[3];
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://remotemysql.com:3306/pTmCnAwlv9", "pTmCnAwlv9",
 					"2v6Ud6up6i");
 			System.out.println("entra conexion");
 			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT * FROM `Pc` WHERE id_user = '"+ usernumber +"'");
+			ResultSet rs = stmt.executeQuery("SELECT * FROM `Pc` WHERE id_user = '" + usernumber + "'");
 			while (rs.next()) {
 				pc = new String[3];
-				System.out.print("Añadido al array: "+rs.getInt("id"));
+				System.out.print("Añadido al array: " + rs.getInt("id"));
 				pc[0] = Integer.toString((rs.getInt("id")));
-				System.out.print("Añadido al array: "+rs.getString("name"));
+				System.out.print("Añadido al array: " + rs.getString("name"));
 				pc[1] = rs.getString("name");
-				System.out.print("Añadido al array: "+rs.getString("class"));
+				System.out.print("Añadido al array: " + rs.getString("class"));
 				pc[2] = rs.getString("class");
 				System.out.print("Añadido al superArray: el subarray pc generado.");
 				pcs.add(pc);
-				System.out.println("Añadido al array de Strings: "+rs.getString("name"));
+				System.out.println("Añadido al array de Strings: " + rs.getString("name"));
 			}
 			con.close();
 			return pcs;
@@ -129,6 +130,35 @@ public class Metodos_logica {
 			System.out.println("error");
 		}
 		return pcs;
+	}
+
+	public static int[] tirarDados(int tf_d4, int tf_d6, int tf_d8, int tf_d10, int tf_d12, int tf_d20, int tf_d100,int tf_dxxx, int tf_dxxx_dice) {
+
+		System.out.println("dentro" +tf_d4);
+		System.out.println("dentro" +tf_d6);
+		System.out.println("dentro" +tf_d8);
+		System.out.println("dentro" +tf_d10);
+		System.out.println("dentro" +tf_d12);
+		System.out.println("dentro" +tf_d20);
+		System.out.println("dentro" +tf_d100);
+		System.out.println("dentro" +tf_dxxx);
+		
+		
+		 int[] dien= { tf_d4, tf_d6, tf_d8, tf_d10, tf_d12, tf_d20, tf_d100, tf_dxxx };
+         int[] returning= new int[8];
+         int[] die= { 4, 6, 8, 10, 12, 20, 100, tf_dxxx_dice };
+         int accumulated= 0;
+         for (int i = 0; i < 7; i++) {
+             if (dien[i] != 0) {
+                 for (int j = 0; j < dien[i]; j++) {
+                     accumulated= accumulated + ThreadLocalRandom.current().nextInt(1, die[i] + 1);
+                 }
+             }
+             System.out.println(accumulated);
+             returning[i] = accumulated;
+             accumulated = 0;
+         }
+         return returning;
 	}
 
 }
