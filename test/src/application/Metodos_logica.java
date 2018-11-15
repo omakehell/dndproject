@@ -132,33 +132,33 @@ public class Metodos_logica {
 		return pcs;
 	}
 
-	public static int[] tirarDados(int tf_d4, int tf_d6, int tf_d8, int tf_d10, int tf_d12, int tf_d20, int tf_d100,int tf_dxxx, int tf_dxxx_dice) {
+	public static int[] tirarDados(int tf_d4, int tf_d6, int tf_d8, int tf_d10, int tf_d12, int tf_d20, int tf_d100,
+			int tf_dxxx, int tf_dxxx_dice) {
 
-		System.out.println("dentro" +tf_d4);
-		System.out.println("dentro" +tf_d6);
-		System.out.println("dentro" +tf_d8);
-		System.out.println("dentro" +tf_d10);
-		System.out.println("dentro" +tf_d12);
-		System.out.println("dentro" +tf_d20);
-		System.out.println("dentro" +tf_d100);
-		System.out.println("dentro" +tf_dxxx);
-		
-		
-		 int[] dien= { tf_d4, tf_d6, tf_d8, tf_d10, tf_d12, tf_d20, tf_d100, tf_dxxx };
-         int[] returning= new int[8];
-         int[] die= { 4, 6, 8, 10, 12, 20, 100, tf_dxxx_dice };
-         int accumulated= 0;
-         for (int i = 0; i < 7; i++) {
-             if (dien[i] != 0) {
-                 for (int j = 0; j < dien[i]; j++) {
-                     accumulated= accumulated + ThreadLocalRandom.current().nextInt(1, die[i] + 1);
-                 }
-             }
-             System.out.println(accumulated);
-             returning[i] = accumulated;
-             accumulated = 0;
-         }
-         return returning;
+		int[] dien = { tf_d4, tf_d6, tf_d8, tf_d10, tf_d12, tf_d20, tf_d100, tf_dxxx };
+		System.out.println("dien" + dien.length);
+		int[] returning = new int[8];
+		int[] die = { 4, 6, 8, 10, 12, 20, 100, tf_dxxx_dice };
+		System.out.println("die" + dien.length);
+		int accumulated = 0;
+		for (int i = 0; i < 7; i++) {
+			if (dien[i] != 0) {
+				for (int j = 0; j < dien[i]; j++) {
+					if (die[i] != 7) {
+						accumulated = accumulated + ThreadLocalRandom.current().nextInt(1, die[i] + 1);
+					}else if(dien[i] != 0) {
+						accumulated = accumulated + ThreadLocalRandom.current().nextInt(1, die[i] + 1);
+					}else {
+						accumulated = 0;
+					}
+				}
+			}
+			System.out.println(accumulated);
+			returning[i] = accumulated;
+			System.out.println("El dado d" + die[i] + " se ha tirado " + dien[i] + " veces, ya ha salido: " + returning[i]);
+			accumulated = 0;
+		}
+		return returning;
 	}
 
 }

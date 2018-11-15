@@ -29,16 +29,16 @@ public class characterSelect_controller implements Initializable {
 			characterSelect_btn_rollhistoric, characterSelect_btn_Mapgen, characterSelect_btn_changeUserDetails,
 			characterSelect_btn_rollDice;
 	@FXML
-	Spinner characterSelect_cb_d4,
-			characterSelect_lb_d6,
-			characterSelect_lb_d8,
-			characterSelect_lb_d10,
-			characterSelect_lb_d12,
-			characterSelect_lb_d20,
-			characterSelect_lb_d100,
-			characterSelect_lb_dxxx,
-			characterSelect_lb_dxxx_dice,
-			characterSelect_lb_modifier;
+	Spinner characterSelect_s_d4,
+	characterSelect_s_d6,
+	characterSelect_s_d8,
+	characterSelect_s_d10,
+	characterSelect_s_d12,
+	characterSelect_s_d20,
+	characterSelect_s_d100,
+	characterSelect_s_dxxx,
+	characterSelect_s_dxxx_dice,
+	characterSelect_s_modifier;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -76,15 +76,15 @@ public class characterSelect_controller implements Initializable {
 
 	private void characterSelect_rolldice(ActionEvent event) {
 		int 
-		tf_d4 = (int) characterSelect_cb_d4.getValue(),
-		tf_d6 = (int) characterSelect_cb_d4.getValue(),
-		tf_d8 = (int) characterSelect_cb_d4.getValue(),
-		tf_d10 = (int) characterSelect_cb_d4.getValue(),
-		tf_d12 = (int) characterSelect_cb_d4.getValue(),
-		tf_d20 = (int) characterSelect_cb_d4.getValue(),
-		tf_d100 = (int) characterSelect_cb_d4.getValue(), 
-		tf_dxxx = (int) characterSelect_cb_d4.getValue(),
-		tf_dxxx_dice = (int) characterSelect_cb_d4.getValue();
+		tf_d4 = (int) characterSelect_s_d4.getValue(),
+		tf_d6 = (int) characterSelect_s_d6.getValue(),
+		tf_d8 = (int) characterSelect_s_d8.getValue(),
+		tf_d10 = (int) characterSelect_s_d10.getValue(),
+		tf_d12 = (int) characterSelect_s_d12.getValue(),
+		tf_d20 = (int) characterSelect_s_d20.getValue(),
+		tf_d100 = (int) characterSelect_s_d100.getValue(), 
+		tf_dxxx = (int) characterSelect_s_dxxx.getValue(),
+		tf_dxxx_dice = (int) characterSelect_s_dxxx_dice.getValue();
 		System.out.println("valor del spinner d4  :" + tf_d4);
 		System.out.println("valor del spinner d6  :" + tf_d6);
 		System.out.println("valor del spinner d8  :" + tf_d8);
@@ -151,15 +151,15 @@ public class characterSelect_controller implements Initializable {
 		SpinnerValueFactory<Integer> vfdxxx_dice = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 9999, 0);
 		SpinnerValueFactory<Integer> vfmodifier = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 9999, 0);
 		
-		characterSelect_cb_d4.setValueFactory(vfd4);
-		characterSelect_lb_d6.setValueFactory(vfd6);
-		characterSelect_lb_d8.setValueFactory(vfd8);
-		characterSelect_lb_d10.setValueFactory(vfd10);
-		characterSelect_lb_d12.setValueFactory(vfd12);
-		characterSelect_lb_d20.setValueFactory(vfd20);
-		characterSelect_lb_d100.setValueFactory(vfd100);
-		characterSelect_lb_dxxx.setValueFactory(vfdxxx);
-		characterSelect_lb_dxxx_dice.setValueFactory(vfdxxx_dice);
-		characterSelect_lb_modifier.setValueFactory(vfmodifier);
+		characterSelect_s_d4.setValueFactory(vfd4);
+		characterSelect_s_d6.setValueFactory(vfd6);
+		characterSelect_s_d8.setValueFactory(vfd8);
+		characterSelect_s_d10.setValueFactory(vfd10);
+		characterSelect_s_d12.setValueFactory(vfd12);
+		characterSelect_s_d20.setValueFactory(vfd20);
+		characterSelect_s_d100.setValueFactory(vfd100);
+		characterSelect_s_dxxx.setValueFactory(vfdxxx);
+		characterSelect_s_dxxx_dice.setValueFactory(vfdxxx_dice);
+		characterSelect_s_modifier.setValueFactory(vfmodifier);
 	}
 }
